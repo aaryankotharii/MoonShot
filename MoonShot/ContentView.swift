@@ -10,9 +10,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("MoonShot")
-            .foregroundColor(Color.pink)
-            .background(/*@START_MENU_TOKEN@*/Color(red: 1.0, green: 0.0, blue: 0.0, opacity: 0.068)/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color
+                .init(.systemPink)
+                .edgesIgnoringSafeArea(.all)
+            Text("MoonShot")
+                .foregroundColor(Color.black)
+                .background(/*@START_MENU_TOKEN@*/Color(red: 1.0, green: 0.0, blue: 0.0, opacity: 0.068)/*@END_MENU_TOKEN@*/)
+
+        }
     }
 }
 

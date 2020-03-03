@@ -10,14 +10,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        ScrollView(.vertical){
         VStack {
-        GeometryReader { geo in
+            ForEach(0..<30){_ in
             Image("tree")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: geo.size.width, height: 300)
+                .frame(width: 100, height: 100)
+            }
         }
-        }
+    }
     }
 }
 

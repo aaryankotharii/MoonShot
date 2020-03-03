@@ -10,21 +10,40 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ScrollView(.vertical){
-        VStack {
-            ForEach(0..<30){_ in
-            Image("tree")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100)
+        Button("Decode data"){
+            let input = """
+                {
+                "name": "Aaryan Kothari",
+                "address": {
+                    "city": "Mumbai",
+                    "country": "India"
+                    }
+                }
+            """
+            //more code to come
+            struct User : Codable {
+                var name : String
+                var address : Address
             }
-        }
-    }
-    }
+            
+            struct Address : Codable {
+                var city : String
+                var country : String
+            }
+            
+            let data = Data(input.utf8)
+            let decoder = JSONDecoder()
+            
+            if let user = try? decoder.decode(User.self, from: data){
+                print(user.address.city)
+            }
 }
+    }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+}
+

@@ -10,13 +10,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            List {
-            Text("MoonShot")
-                Text("MoonShot")
-                .foregroundColor(Color.black)
-                    .background(/*@START_MENU_TOKEN@*/Color(hue: 0.511, saturation: 0.366, brightness: 0.633, opacity: 0.88)/*@END_MENU_TOKEN@*/)
-            }
+        VStack {
+        GeometryReader { geo in
+            Image("tree")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: geo.size.width, height: 300)
+        }
         }
     }
 }
